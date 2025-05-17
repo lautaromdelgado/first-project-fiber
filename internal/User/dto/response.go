@@ -1,7 +1,7 @@
 package dto
 
 type UserResponse struct {
-	ID       uint
-	Username string
-	Email    string
+	ID       uint   `json:"id"`
+	Username string `json:"username"`
+	Email    string `json:"email"`
 }

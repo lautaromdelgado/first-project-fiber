@@ -8,7 +8,7 @@ import (
 	"github.com/lautaromdelgado/first-project-fiber/internal/security/middlewares"
 )
 
-func InitFiber() *fiber.App {
+func InitFiber() {
 	app := fiber.New()
 
 	app.Use(middlewares.LoggingMiddleware)
@@ -16,6 +16,4 @@ func InitFiber() *fiber.App {
 	routes.InitRoutes(app)
 
 	log.Fatal(app.Listen(":3000"))
-
-	return app
 }
