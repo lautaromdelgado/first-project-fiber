@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -21,6 +22,21 @@ func main() {
 		return c.JSON(fiber.Map{
 			"stattus": "success",
 			"message": "Hello, World!",
+		})
+	})
+
+	app.Post("/api/usuarios", func(c *fiber.Ctx) error {
+		user := new(User)
+		if err := c.BodyParser(user); err != nil {
+			return c.Status(http.StatusBadRequest).JSON(map[string]interface{}{
+				"status":  "error",
+				"message": "oooops, algo salió mal",
+			})
+		}
+		return c.Status(http.StatusOK).JSON(map[string]interface{}{
+			"status":  "success",
+			"message": "usuario creado",
+			"user":    user,
 		})
 	})
 
