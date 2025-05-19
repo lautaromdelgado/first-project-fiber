@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/lautaromdelgado/first-project-fiber/internal/routes"
+	"github.com/lautaromdelgado/first-project-fiber/internal/User/routes"
 	"github.com/lautaromdelgado/first-project-fiber/internal/security/middlewares"
 )
 
